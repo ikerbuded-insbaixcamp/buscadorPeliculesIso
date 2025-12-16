@@ -7,8 +7,32 @@
 </head>
 
 <body>
+
     <h1>Cercador de Pel·lícules</h1>
-    <p>Backend funcionant correctament.</p>
+
+    <input type="text" id="query" placeholder="Introdueix el títol">
+    <button onclick="searchMovies()">Cercar</button>
+
+    <ul id="results"></ul>
+
+    <script src="./movieUtils.js"></script>
+    <script>
+        async function searchMovies() {
+            const query = document.getElementById('query').value;
+            const response = await fetch(`/search?q=${query}`);
+            const movies = await response.json();
+
+            const list = document.getElementById('results');
+            list.innerHTML = '';
+
+            movies.forEach(movie => {
+                const li = document.createElement('li');
+                li.textContent = `${movie.title} (${movie.year})`;
+                list.appendChild(li);
+            });
+        }
+    </script>
+
 </body>
 
 </html>

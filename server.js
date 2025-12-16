@@ -1,21 +1,26 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { filterMovies } = require('./movieUtils');
 
 const app = express();
+app.use(express.static(__dirname));
 
-// Servir el frontend
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Retornar totes les pel·lícules
-app.get('/movies', (req, res) => {
-    fs.readFile('movies.json', 'utf8', (err, data) => {
+app.get('/search', (req, res) => {
+    const query = req.query.q || '';
+
+    fs.readFile('pelicules.json', 'utf8', (err, data) => {
         if (err) {
             return res.status(500).send('Error llegint el fitxer de pel·lícules');
         }
-        res.json(JSON.parse(data));
+
+        const movies = JSON.parse(data);
+        const result = filterMovies(movies, query);
+        res.json(result);
     });
 });
 
