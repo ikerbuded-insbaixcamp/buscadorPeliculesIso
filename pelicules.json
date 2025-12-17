@@ -1,26 +1,182 @@
 [
     {
         "id": 1,
-        "title": "Matrix",
-        "year": 1999,
-        "genre": "Sci-Fi"
+        "title": "El padrí",
+        "year": 1972,
+        "genre": "Crim"
     },
     {
         "id": 2,
-        "title": "Inception",
-        "year": 2010,
-        "genre": "Sci-Fi"
+        "title": "El padrí II",
+        "year": 1974,
+        "genre": "Crim"
     },
     {
         "id": 3,
-        "title": "Interstellar",
-        "year": 2014,
-        "genre": "Sci-Fi"
+        "title": "Pulp Fiction",
+        "year": 1994,
+        "genre": "Crim"
     },
     {
         "id": 4,
-        "title": "The Dark Knight",
+        "title": "Forrest Gump",
+        "year": 1994,
+        "genre": "Drama"
+    },
+    {
+        "id": 5,
+        "title": "Titanic",
+        "year": 1997,
+        "genre": "Romàntica"
+    },
+    {
+        "id": 6,
+        "title": "La llista de Schindler",
+        "year": 1993,
+        "genre": "Drama"
+    },
+    {
+        "id": 7,
+        "title": "Gladiator",
+        "year": 2000,
+        "genre": "Acció"
+    },
+    {
+        "id": 8,
+        "title": "Braveheart",
+        "year": 1995,
+        "genre": "Històrica"
+    },
+    {
+        "id": 9,
+        "title": "Matrix",
+        "year": 1999,
+        "genre": "Ciència-ficció"
+    },
+    {
+        "id": 10,
+        "title": "El senyor dels anells: La comunitat de l'anell",
+        "year": 2001,
+        "genre": "Fantasia"
+    },
+    {
+        "id": 11,
+        "title": "El senyor dels anells: Les dues torres",
+        "year": 2002,
+        "genre": "Fantasia"
+    },
+    {
+        "id": 12,
+        "title": "El senyor dels anells: El retorn del rei",
+        "year": 2003,
+        "genre": "Fantasia"
+    },
+    {
+        "id": 13,
+        "title": "Star Wars: Una nova esperança",
+        "year": 1977,
+        "genre": "Ciència-ficció"
+    },
+    {
+        "id": 14,
+        "title": "Star Wars: L'imperi contraataca",
+        "year": 1980,
+        "genre": "Ciència-ficció"
+    },
+    {
+        "id": 15,
+        "title": "Jurassic Park",
+        "year": 1993,
+        "genre": "Aventura"
+    },
+    {
+        "id": 16,
+        "title": "Retorn al futur",
+        "year": 1985,
+        "genre": "Ciència-ficció"
+    },
+    {
+        "id": 17,
+        "title": "El cavaller fosc",
         "year": 2008,
-        "genre": "Action"
+        "genre": "Acció"
+    },
+    {
+        "id": 18,
+        "title": "Inception (Origen)",
+        "year": 2010,
+        "genre": "Ciència-ficció"
+    },
+    {
+        "id": 19,
+        "title": "Avatar",
+        "year": 2009,
+        "genre": "Ciència-ficció"
+    },
+    {
+        "id": 20,
+        "title": "La vida és bella",
+        "year": 1997,
+        "genre": "Drama"
+    },
+    {
+        "id": 21,
+        "title": "Ocho apellidos vascos",
+        "year": 2014,
+        "genre": "Comèdia"
+    },
+    {
+        "id": 22,
+        "title": "Mar adentro",
+        "year": 2004,
+        "genre": "Drama"
+    },
+    {
+        "id": 23,
+        "title": "Torrente, el braç tonto de la llei",
+        "year": 1998,
+        "genre": "Comèdia"
+    },
+    {
+        "id": 24,
+        "title": "Pa negre",
+        "year": 2010,
+        "genre": "Drama"
+    },
+    {
+        "id": 25,
+        "title": "Los otros",
+        "year": 2001,
+        "genre": "Terror"
+    },
+    {
+        "id": 26,
+        "title": "REC",
+        "year": 2007,
+        "genre": "Terror"
+    },
+    {
+        "id": 27,
+        "title": "Cel·la 211",
+        "year": 2009,
+        "genre": "Drama"
+    },
+    {
+        "id": 28,
+        "title": "Volver",
+        "year": 2006,
+        "genre": "Drama"
+    },
+    {
+        "id": 29,
+        "title": "El laberinto del fauno",
+        "year": 2006,
+        "genre": "Fantasia"
+    },
+    {
+        "id": 30,
+        "title": "La isla mínima",
+        "year": 2014,
+        "genre": "Thriller"
     }
 ]

@@ -4,33 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <title>Cercador de Pel·lícules</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>Cercador de Pel·lícules</h1>
+    <div class="container">
+        <h1>Cercador de Pel·lícules</h1>
 
-    <input type="text" id="query" placeholder="Introdueix el títol">
-    <button onclick="searchMovies()">Cercar</button>
+        <div class="search-box">
+            <input type="text" id="query" placeholder="Introdueix el títol">
+            <select id="genre"></select>
+            <button onclick="searchMovies()">Cercar</button>
+        </div>
 
-    <ul id="results"></ul>
+        <ul id="results"></ul>
+    </div>
 
     <script src="./movieUtils.js"></script>
     <script>
+        async function loadAllMovies() {
+            const response = await fetch('/search');
+            const movies = await response.json();
+            renderMovies(movies);
+        }
+
+        async function loadGenres() {
+            const response = await fetch('/genres');
+            const genres = await response.json();
+
+            const select = document.getElementById('genre');
+            select.innerHTML = '<option value="Tots">Tots els gèneres</option>';
+
+            genres.forEach(genre => {
+                const option = document.createElement('option');
+                option.value = genre;
+                option.textContent = genre;
+                select.appendChild(option);
+            });
+        }
+
         async function searchMovies() {
             const query = document.getElementById('query').value;
-            const response = await fetch(`/search?q=${query}`);
-            const movies = await response.json();
+            const genre = document.getElementById('genre').value;
 
+            const response = await fetch(`/search?q=${query}&genre=${genre}`);
+            const movies = await response.json();
+            renderMovies(movies);
+        }
+
+
+
+        function renderMovies(movies) {
             const list = document.getElementById('results');
             list.innerHTML = '';
 
+            if (movies.length === 0) {
+                list.innerHTML = '<li class="empty">No s\'han trobat resultats</li>';
+                return;
+            }
+
             movies.forEach(movie => {
                 const li = document.createElement('li');
-                li.textContent = `${movie.title} (${movie.year})`;
+                li.innerHTML = `
+          <strong>${movie.title}</strong>
+          <span>(${movie.year})</span>
+          <em>${movie.genre}</em>
+        `;
                 list.appendChild(li);
             });
         }
+
+        window.onload = () => {
+            loadGenres();
+            loadAllMovies();
+        };
+
     </script>
 
 </body>

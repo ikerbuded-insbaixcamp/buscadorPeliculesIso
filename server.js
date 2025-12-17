@@ -12,17 +12,31 @@ app.get('/', (req, res) => {
 
 app.get('/search', (req, res) => {
     const query = req.query.q || '';
+    const genre = req.query.genre || 'Tots';
 
-    fs.readFile('pelicules.json', 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, 'pelicules.json'), 'utf8', (err, data) => {
         if (err) {
-            return res.status(500).send('Error llegint el fitxer de pel·lícules');
+            return res.status(500).json({ error: 'Error llegint les dades' });
         }
 
         const movies = JSON.parse(data);
-        const result = filterMovies(movies, query);
+        const result = filterMovies(movies, query, genre);
         res.json(result);
     });
 });
+
+app.get('/genres', (req, res) => {
+    fs.readFile(path.join(__dirname, 'pelicules.json'), 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error llegint les dades' });
+        }
+
+        const movies = JSON.parse(data);
+        const genres = [...new Set(movies.map(m => m.genre))].sort();
+        res.json(genres);
+    });
+});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
